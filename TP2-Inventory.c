@@ -52,7 +52,6 @@ magasin.items_list[4]= &sandales;
 
 while (mambas > epee.prix) {
 
-
   Color(15,0);        printf("-----------------------Marchand-------------------------     ");                                                                                                      Color(5,0);    printf("-----------------------Joueur-------------------------\n");
   Color(15,0);        printf("      Nom     |   Prix (mambas d'or)   |   Quantites   |     ");                                                                                                      Color(5,0);    printf("      Nom     |   Prix (mambas d'or)   |   Quantites   |\n");
   Color(15,0);        printf("--------------------------------------------------------     ");                                                                                                      Color(5,0);    printf("-------------------------------------------------------\n");
