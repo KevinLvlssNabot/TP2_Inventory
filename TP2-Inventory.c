@@ -48,9 +48,13 @@ magasin.items_list[3]= &armure;
 magasin.items_list[4]= &sandales;
 magasin.items_list[5]= &objetCree;
 
+
   int objetPerso = 0;
   int choix;
   int confirmation = 5;
+
+
+
   int continuer = 1;
   int mambas = 1000;
 
