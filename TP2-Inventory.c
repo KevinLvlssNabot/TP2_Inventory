@@ -27,7 +27,8 @@ int main() {
   items armure = {"Armure", 150, 10};
   items sandales = {"Sandales", 200, 10};
 
-shop magasin = {{NULL}};
+shop magasin = {NULL};
+
 magasin.items_list = malloc(5* sizeof(items*));
 
 magasin.items_list[0]= &epee;
@@ -42,8 +43,9 @@ magasin.items_list[4]= &sandales;
 while (continuer == 1) {
 
   int choix;
+          printf("-----------------------Marchand-------------------------\n");
           printf("      Nom     |   Prix (mambas d'or)   |   Quantites   |\n");
-          printf("--------------------------------------------------------------------\n");
+          printf("--------------------------------------------------------\n");
           printf("   %s       |            %d          |     x%d       |\n", magasin.items_list[0]->nom, magasin.items_list[0]->prix, magasin.items_list[0]->quantite);
           printf("   %s   |            %d          |     x%d       |\n", magasin.items_list[1]->nom, magasin.items_list[1]->prix, magasin.items_list[1]->quantite);
           printf("   %s    |            %d         |     x%d       |\n", magasin.items_list[2]->nom, magasin.items_list[2]->prix, magasin.items_list[2]->quantite);
