@@ -38,6 +38,9 @@ int main() {
   char nomTemp[TAILLE_MAX];
 
 shop magasin = {NULL};
+char temp_list[15];
+int temp_prix;
+int temp_quantite;
 
 
 magasin.items_list = malloc(6* sizeof(items*));
@@ -57,9 +60,34 @@ magasin.items_list[5]= &objetCree;
 
 
   int continuer = 1;
-  int mambas = 1000;
+  int mambas = 2000;
+  int i;
+  int j;
 
 while (mambas > epee.prix) {
+
+if (objetPerso == 0) {
+  for (i = 0; i < 5; i++) {
+    for (j=i+1 ; j < 5; j++) {
+      if (strcmp(magasin.items_list[i]->nom, magasin.items_list[j]->nom) > 0) {
+              strcpy(temp_list,magasin.items_list[i]->nom); temp_prix = magasin.items_list[i]->prix; temp_quantite = magasin.items_list[i]->quantite;
+              strcpy(magasin.items_list[i]->nom,magasin.items_list[j]->nom); magasin.items_list[i]->prix = magasin.items_list[j]->prix; magasin.items_list[i]->quantite = magasin.items_list[j]->quantite;
+              strcpy(magasin.items_list[j]->nom,temp_list); magasin.items_list[j]->prix = temp_prix; magasin.items_list[j]->quantite = temp_quantite;
+      }
+    }
+  }
+
+} else if (objetPerso > 0) {
+  for (i = 0; i < 6; i++) {
+    for (j=i+1 ; j < 6; j++) {
+      if (strcmp(magasin.items_list[i]->nom, magasin.items_list[j]->nom) > 0) {
+              strcpy(temp_list,magasin.items_list[i]->nom); temp_prix = magasin.items_list[i]->prix; temp_quantite = magasin.items_list[i]->quantite;
+              strcpy(magasin.items_list[i]->nom,magasin.items_list[j]->nom); magasin.items_list[i]->prix = magasin.items_list[j]->prix; magasin.items_list[i]->quantite = magasin.items_list[j]->quantite;
+              strcpy(magasin.items_list[j]->nom,temp_list); magasin.items_list[j]->prix = temp_prix; magasin.items_list[j]->quantite = temp_quantite;
+      }
+    }
+  }
+}
 
 
   Color(15,0);        printf("-----------------------Marchand-------------------------     \n");
@@ -86,7 +114,7 @@ Color(5,0); if (objetCree.quantiteJoueur > 0)  {  printf( "                     
 Color(15,0);
       printf("Que voulez-vous acheter ?\n");
       if (objetPerso == 1) {
-        printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour acheter votre objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
+        printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour un/une %s.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom, magasin.items_list[5]->nom);
       } else {
       printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
     }
@@ -120,7 +148,7 @@ Color(15,0);
                           printf("Nous ne possédons plus cet objet, veuillez-nous pardonner.\n");
                           printf("Que voulez-vous acheter ?\n");
                           if (objetPerso == 1) {
-                            printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour acheter votre objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
+                            printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour un/une %s.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom, magasin.items_list[5]->nom);
                           } else {
                           printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
                         }
@@ -138,7 +166,7 @@ Color(15,0);
                     printf("Nous ne possédons plus cet objet, veuillez-nous pardonner.\n");
                     printf("Que voulez-vous acheter ?\n");
                     if (objetPerso == 1) {
-                      printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour acheter votre objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
+                      printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour un/une %s.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom, magasin.items_list[5]->nom);
                     } else {
                     printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
                   }
@@ -156,7 +184,7 @@ Color(15,0);
                         printf("Nous ne possédons plus cet objet, veuillez-nous pardonner.\n");
                         printf("Que voulez-vous acheter ?\n");
                         if (objetPerso == 1) {
-                          printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour acheter votre objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
+                          printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour un/une %s.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom, magasin.items_list[5]->nom);
                         } else {
                         printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
                       }
@@ -174,7 +202,7 @@ Color(15,0);
                       printf("Nous ne possédons plus cet objet, veuillez-nous pardonner.\n");
                       printf("Que voulez-vous acheter ?\n");
                       if (objetPerso == 1) {
-                        printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour acheter votre objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
+                        printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour un/une %s.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom, magasin.items_list[5]->nom);
                       } else {
                       printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
                     }
@@ -211,7 +239,7 @@ Color(15,0);
                             printf("Nous ne possédons plus cet objet, veuillez-nous pardonner.\n");
                             printf("Que voulez-vous acheter ?\n");
                             if (objetPerso == 1) {
-                              printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour acheter votre objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
+                              printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet, 6 pour un/une %s.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom, magasin.items_list[5]->nom);
                             } else {
                             printf("0 pour une %s, 1 pour un %s, 2 pour un %s, 3 pour un %s, 4 pour une %s, 5 pour creer un objet.\n", magasin.items_list[0]->nom, magasin.items_list[1]->nom, magasin.items_list[2]->nom, magasin.items_list[3]->nom, magasin.items_list[4]->nom);
                           }
