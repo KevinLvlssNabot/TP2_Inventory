@@ -48,9 +48,13 @@ magasin.items_list[3]= &armure;
 magasin.items_list[4]= &sandales;
 magasin.items_list[5]= &objetCree;
 
+
   int objetPerso = 0;
   int choix;
   int confirmation = 5;
+
+
+
   int continuer = 1;
   int mambas = 1000;
 
@@ -65,8 +69,9 @@ while (mambas > epee.prix) {
   Color(15,0);        printf("   %s    |            %d         |     x%d       |     ", magasin.items_list[2]->nom, magasin.items_list[2]->prix, magasin.items_list[2]->quantite);                  Color(5,0);  if (chapeau.quantite > 0) {  printf("   %s    |            %d         |     x%d       |\n", magasin.items_list[2]->nom, magasin.items_list[2]->prix, magasin.items_list[2]->quantiteJoueur);}
   Color(15,0);        printf("   %s     |            %d         |     x%d       |     ", magasin.items_list[3]->nom, magasin.items_list[3]->prix, magasin.items_list[3]->quantite);                 Color(5,0);  if (armure.quantite > 0) {  printf("   %s     |            %d         |     x%d       |\n", magasin.items_list[3]->nom, magasin.items_list[3]->prix, magasin.items_list[3]->quantiteJoueur);}
   Color(15,0);        printf("   %s   |            %d         |     x%d       |     ", magasin.items_list[4]->nom, magasin.items_list[4]->prix, magasin.items_list[4]->quantite);                   Color(5,0);  if (sandales.quantite > 0) {  printf("   %s   |            %d         |     x%d       |\n", magasin.items_list[4]->nom, magasin.items_list[4]->prix, magasin.items_list[4]->quantiteJoueur);}
-                      printf("   %s   |            %d         |     x%d       |\n", magasin.items_list[5]->nom, magasin.items_list[5]->prix, magasin.items_list[5]->quantite);                                                                                                                  printf("                                                                                                      Mambas: %d\n", mambas);
-Color(15,0);
+  Color(15,0);        printf("   %s   |            %d         |     x%d       |\n", magasin.items_list[5]->nom, magasin.items_list[5]->prix, magasin.items_list[5]->quantite);                                                                                                                  printf("                                                                                                      Mambas: %d\n", mambas);
+
+
 
 
       printf("Que voulez-vous acheter ?\n");
